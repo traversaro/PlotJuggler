@@ -121,6 +121,10 @@ target_link_libraries(plotjuggler
     QCodeEditor
     )
 
+if(UNIX AND NOT APPLE)
+  target_link_libraries(plotjuggler xcb)
+endif()
+
 if(COMPILING_WITH_CATKIN)
 
     target_link_libraries(plotjuggler ${catkin_LIBRARIES} )
